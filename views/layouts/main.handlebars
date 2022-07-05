@@ -1,62 +1,98 @@
 <html lang='en'>
 
-<head>
-  <meta charset='UTF-8' />
-  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-  <title>Portfolio Tracker</title>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Portfolio Tracker</title>
 
-  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css' />
-  <link rel='stylesheet' href='/css/style.css' />
-</head>
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'
+    />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
 
-<body>
-  <header>
-    <nav class='navbar navbar-expand-lg navbar-light' style='background-color: #737679;'>
-      <a class='navbar-brand' href='#'>Folio</a>
-      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup'
-        aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
-        <span class='navbar-toggler-icon'></span>
-      </button>
-      <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
-        <div class='navbar-nav'>
-          <a class='nav-link' id='home' href='/'>Home</a>
-          <a class='nav-link' id='dashboard' href='/dashboard'>Dashboard</a>
-          <a class='nav-link' id='about' href='/about'>Team</a>
+  <body>
+    <header>
+      <nav
+        class='navbar navbar-expand-lg navbar-light'
+        style='background-color: #737679;'
+      >
+        <a class='navbar-brand' href='#'>Folio</a>
+        <button
+          class='navbar-toggler'
+          type='button'
+          data-toggle='collapse'
+          data-target='#navbarNavAltMarkup'
+          aria-controls='navbarNavAltMarkup'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        >
+          <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarNavAltMarkup'>
+          <div class='navbar-nav'>
+            <a class='nav-link' id='home' href='/'>Home</a>
+            <a class='nav-link' id='dashboard' href='/dashboard'>Dashboard</a>
+            <a class='nav-link' id='about' href='/about'>Team</a>
+          </div>
         </div>
         <div>
           {{#if logged_in}}
-          <button type='button' id='logout' class='btn btn-primary btn-sm'>Logout</button>
+            <button
+              type='button'
+              id='logout'
+              class='btn btn-primary btn-sm'
+            >Logout</button>
           {{else}}
-          <a href='/login'>Login</a>
-          <a href='/register'>Register</a>
+            <a href='/login'>Login</a>
+            <a href='/register'>Register</a>
           {{/if}}
         </div>
-    </nav>
+      </nav>
 
-  </header>
+    </header>
 
-  {{{body}}}
+    {{{body}}}
 
-  <footer class='my-5 p-1 text-muted text-center text-small bg-secondary text-align-center'>
-    <p class='mb-1 text-light'>© 2017-2021 Company Name</p>
-    <ul class='list-inline'>
-      <li class='list-inline-item'><a href='https://github.com/elliotzacharywaxman' target='_blank'>Elliot Waxman</a>
-      </li>
-      <li class='list-inline-item'><a href='https://github.com/lyf703331869' target='_blank'>Yafei Liu</a></li>
-      <li class='list-inline-item'><a href='https://github.com/destinyhenry' target='_blank'>Destiny Henry</a></li>
-      <li class='list-inline-item'><a href='https://github.com/shayosullivan' target='_blank'>Shay O'Sullivan</a></li>
-    </ul>
-  </footer>
+    <footer
+      class='my-5 p-1 text-muted text-center text-small bg-secondary text-align-center'
+    >
+      <p class='mb-1 text-light'>© 2017-2021 Company Name</p>
+      <ul class='list-inline'>
+        <li class='list-inline-item'><a
+            href='https://github.com/elliotzacharywaxman'
+            target='_blank'
+          >Elliot Waxman</a>
+        </li>
+        <li class='list-inline-item'><a
+            href='https://github.com/lyf703331869'
+            target='_blank'
+          >Yafei Liu</a></li>
+        <li class='list-inline-item'><a
+            href='https://github.com/destinyhenry'
+            target='_blank'
+          >Destiny Henry</a></li>
+        <li class='list-inline-item'><a
+            href='https://github.com/shayosullivan'
+            target='_blank'
+          >Shay O'Sullivan</a></li>
+      </ul>
+    </footer>
 
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-  <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js'
-    integrity='sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF'
-    crossorigin='anonymous'></script>
+    <script
+      src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'
+    ></script>
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js'
+      integrity='sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF'
+      crossorigin='anonymous'
+    ></script>
 
-  {{#if logged_in}}
-  <script src='/js/logout.js'></script>
-  {{/if}}
-</body>
+    {{#if logged_in}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
+  </body>
 
 </html>
