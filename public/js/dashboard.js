@@ -1,3 +1,4 @@
+// const items = document.querySelector("li")
 const addSymbolButton = document.getElementById('add-symbol-button');
 const reduceSymbolButton = document.getElementById('reduce-symbol-button');
 const symbolInput = document.getElementById('symbol-input');
@@ -120,6 +121,8 @@ function addSymbolToChart() {
   symbolInput.value = '';
   sharesInput.value = '';
 }
+
+
 
 const deleteSymbol = async (id) => {
   const response = await fetch(`/api/stocks/${id}`, {

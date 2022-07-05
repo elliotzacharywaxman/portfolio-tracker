@@ -39,10 +39,7 @@ router.get('/', (req, res) => {
           const ebitda = quotes.financialData.ebitda;
           stocks.push({ symbol: symbol, price: price, ebitda: ebitda });
           if (i === symbols.length - 1) {
-            res.render('homepage', {
-              stocks,
-              logged_in: req.session.logged_in,
-            });
+            res.render('homepage', { stocks, logged_in: req.session.logged_in });
           }
         } else {
           return res.status(404).send('Not found');
