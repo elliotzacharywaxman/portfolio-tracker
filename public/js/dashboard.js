@@ -24,6 +24,24 @@ const myChart = new Chart(document.getElementById('chart'), config);
 
 reduceSymbolButton.addEventListener('click', () => {
   const symbolInputValue = symbolInput.value.toUpperCase();
+  checkSymbolBeforeReduce(symbolInputValue);
+});
+
+function checkSymbolBeforeReduce(symbol) {
+  fetch('/status?symbol=' + symbol).then((response) => {
+    if (response.ok) {
+      reduceSymbolToChart();
+    } else {
+      symbolInput.value = '';
+      sharesInput.value = '';
+      alert('Stock not found');
+      window.location.replace('/dashboard');
+    }
+  });
+}
+
+function reduceSymbolToChart() {
+  const symbolInputValue = symbolInput.value.toUpperCase();
   const sharesInputValue = sharesInput.value * -1;
   symbols.value = '';
   for (let i = 0; i < symbolList.children.length; i++) {
@@ -51,16 +69,35 @@ reduceSymbolButton.addEventListener('click', () => {
       }
     }
   } else {
-    addSymbol(symbolInputValue, sharesInputValue);
+    alert("You don't have this stock in your portfolio to sell");
   }
   symbolInput.value = '';
   sharesInput.value = '';
-});
+}
 
 addSymbolButton.addEventListener('click', () => {
   const symbolInputValue = symbolInput.value.toUpperCase();
+  checkSymbolBeforeAdd(symbolInputValue);
+});
+
+function checkSymbolBeforeAdd(symbol) {
+  fetch('/status?symbol=' + symbol).then((response) => {
+    if (response.ok) {
+      addSymbolToChart();
+    } else {
+      symbolInput.value = '';
+      sharesInput.value = '';
+      alert('Stock not found');
+      window.location.replace('/dashboard');
+    }
+  });
+}
+
+function addSymbolToChart() {
+  const symbolInputValue = symbolInput.value.toUpperCase();
   const sharesInputValue = sharesInput.value;
   symbols.value = '';
+
   for (let i = 0; i < symbolList.children.length; i++) {
     symbols.push(symbolList.children[i].children[0].innerHTML);
   }
@@ -82,7 +119,7 @@ addSymbolButton.addEventListener('click', () => {
   }
   symbolInput.value = '';
   sharesInput.value = '';
-});
+}
 
 const deleteSymbol = async (id) => {
   const response = await fetch(`/api/stocks/${id}`, {

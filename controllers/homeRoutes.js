@@ -75,6 +75,28 @@ router.get('/price', withAuth, (req, res) => {
   );
 });
 
+router.get('/status', withAuth, (req, res) => {
+  const symbol = req.query.symbol;
+  if (!symbol) {
+    return res.status(404).send('Not found');
+  }
+  yahooFinance.quote(
+    {
+      symbol: symbol,
+      modules: ['financialData'],
+    },
+    function (err, quotes) {
+      if (quotes && quotes.financialData) {
+        res.send({
+          symbol: symbol,
+        });
+      } else {
+        return res.status(404).send('Not found');
+      }
+    }
+  );
+});
+
 const addPriceToStock = async (stock) => {
   const updatedStock = await new Promise((resolve, reject) => {
     yahooFinance.quote(
